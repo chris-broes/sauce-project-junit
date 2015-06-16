@@ -51,7 +51,7 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
      * Constructs a {@link SauceOnDemandAuthentication} instance using the supplied user name/access key.  To use the authentication
      * supplied by environment variables or from an external file, use the no-arg {@link SauceOnDemandAuthentication} constructor.
      */
-    public SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication("chrisbroes", "e87ae4c9-cb47-4dfa-a572-02487774ca72");
+    public SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication("sauce_username", "sauce_access_key");
 
     /**
      * JUnit Rule which will mark the Sauce Job as passed/failed when the test succeeds or fails.
@@ -104,15 +104,15 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
     public static LinkedList browsersStrings() {
         LinkedList browsers = new LinkedList();
         browsers.add(new String[]{"Windows 8.1", "11", "internet explorer"});
-        browsers.add(new String[]{"OSX 10.8", "6", "safari"});
+        browsers.add(new String[]{"OS X 10.8", "6", "safari"});
         browsers.add(new String[]{"Windows 7", "36", "Chrome"});
-        browsers.add(new String[]{"Windows 8.1", "11", "internet explorer"});
-        browsers.add(new String[]{"OSX 10.8", "6", "safari"});
-        browsers.add(new String[]{"Windows 7", "36", "Chrome"});
-        browsers.add(new String[]{"Windows 8.1", "11", "internet explorer"});
-        browsers.add(new String[]{"OSX 10.8", "6", "safari"});
-        browsers.add(new String[]{"Windows 7", "36", "Chrome"});
-        browsers.add(new String[]{"Windows 7", "36", "Chrome"});
+        browsers.add(new String[]{"Windows 8", "10", "internet explorer"});
+        browsers.add(new String[]{"OS X 10.10", "8.0", "safari"});
+        browsers.add(new String[]{"Windows 7", "5.1", "safari"});
+        browsers.add(new String[]{"Windows XP", "7.0", "internet explorer"});
+        browsers.add(new String[]{"OS X 10.9", "7.0", "safari"});
+        browsers.add(new String[]{"Windows 8.1", "38.0", "firefox"});
+        browsers.add(new String[]{"Windows 8.1", "43.0", "Chrome"});
         return browsers;
     }
 
@@ -147,7 +147,7 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
      */
     @Test
     public void sauce() throws Exception {
-        driver.get("http://0.0.0.0:9292/login");
+        driver.get("http://the-internet.herokuapp.com/login");
         driver.findElement(By.id("username")).sendKeys("tomsmith");
         driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
         driver.findElement(By.cssSelector("button.radius")).click();
