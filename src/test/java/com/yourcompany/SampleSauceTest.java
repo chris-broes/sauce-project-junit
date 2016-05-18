@@ -148,7 +148,7 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
      */
     @Test
     public void sauce() throws Exception {
-        driver.get("http://the-internet.herokuapp.com/login");
+        driver.get("localhost:9292/login");
         driver.findElement(By.id("username")).sendKeys("tomsmith");
         driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
         driver.findElement(By.cssSelector("button.radius")).click();
